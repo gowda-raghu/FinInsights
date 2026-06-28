@@ -35,7 +35,10 @@ public class JWTMiddleware
         try
         {
             var tokenHandler = new JwtSecurityTokenHandler();
+            var jwt = tokenHandler.ReadJwtToken(token);
 
+            Console.WriteLine(jwt.ValidTo);
+            Console.WriteLine(jwt.Payload.SerializeToJson());
             tokenHandler.ValidateToken(
                 token,
                 new TokenValidationParameters
