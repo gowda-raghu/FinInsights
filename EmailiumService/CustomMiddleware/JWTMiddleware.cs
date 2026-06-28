@@ -25,6 +25,7 @@ public class JWTMiddleware
         {
             context.Response.StatusCode = 401;
             await context.Response.WriteAsync("Missing token");
+
             return;
         }
 
@@ -53,10 +54,15 @@ public class JWTMiddleware
                 },
                 out _);
         }
-        catch
+        catch (Exception ex)
         {
+            Console.WriteLine("================================");
+            Console.WriteLine(ex.ToString());
+            Console.WriteLine("================================");
+
             context.Response.StatusCode = 401;
-            await context.Response.WriteAsync("Invalid token");
+            await context.Response.WriteAsync(ex.ToString());
+
             return;
         }
 
