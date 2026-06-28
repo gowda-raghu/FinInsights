@@ -1,0 +1,26 @@
+# ---------- .NET ----------
+bin/
+obj/
+.vs/
+*.user
+*.suo
+
+# ---------- Angular ----------
+node_modules/
+dist/
+.angular/
+coverage/
+
+# ---------- VS Code ----------
+.vscode/settings.json
+
+# ---------- Logs ----------
+*.log
+
+# ---------- OS ----------
+.DS_Store
+Thumbs.db
+
+# ---------- Environment ----------
+.env
+appsettings.Development.json
