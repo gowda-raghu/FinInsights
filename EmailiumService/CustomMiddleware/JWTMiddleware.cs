@@ -30,6 +30,7 @@ public class JWTMiddleware
         }
 
         var token = authHeader.Replace("Bearer ", "");
+        Console.WriteLine(token);
 
         try
         {
