@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { catchError, Observable, throwError } from 'rxjs';
+import { environment } from '../../../environments/environment';
+
 @Component({
   selector: 'app-restservice',
   imports: [],
@@ -14,7 +16,7 @@ import { catchError, Observable, throwError } from 'rxjs';
 })
 export class Restservice {
 
-  private baseUrl = 'http://localhost:5093/api'; // your .NET API
+  private baseUrl = environment.apiUrl; // your .NET API
   constructor(private https: HttpClient) { }
 
   login(credentials: any) {
