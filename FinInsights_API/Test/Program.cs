@@ -55,16 +55,26 @@ builder.Services.AddTransient<ServiceTokenHandler>();
 builder.Services.AddHttpClient("InternalServices")
     .AddHttpMessageHandler<ServiceTokenHandler>();
 builder.Services.AddScoped<IServiceInvoker, ServiceInvoker>();
+// builder.Services.AddCors(options =>
+// {
+//     options.AddPolicy("AllowAll",
+//         policy => policy.WithOrigins(
+//             "http://localhost:4200",
+//             "https://fin-insights-3mhz.vercel.app",
+//             "https://fin-insights-3mhz-git-prod-fin-insight.vercel.app"
+//         )
+//                         .AllowAnyMethod()
+//                         .AllowAnyHeader());
+// });
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("AllowAll",
-        policy => policy.WithOrigins(
-            "http://localhost:4200",
-            "https://fin-insights-3mhz.vercel.app",
-            "https://fin-insights-3mhz-git-prod-fin-insight.vercel.app"
-        )
-                        .AllowAnyMethod()
-                        .AllowAnyHeader());
+    options.AddPolicy("AllowAll", policy =>
+    {
+        policy
+            .AllowAnyOrigin()
+            .AllowAnyMethod()
+            .AllowAnyHeader();
+    });
 });
 builder.Services.Configure<OpenRouterSettings>(
     builder.Configuration.GetSection("OpenAI")
