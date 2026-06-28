@@ -58,7 +58,7 @@ builder.Services.AddScoped<IServiceInvoker, ServiceInvoker>();
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowAll",
-        policy => policy.WithOrigins("http://localhost:4200")
+        policy => policy.WithOrigins("AllowAll")
                         .AllowAnyMethod()
                         .AllowAnyHeader());
 });
