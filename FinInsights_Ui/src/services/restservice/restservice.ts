@@ -16,7 +16,7 @@ import { environment } from '../../../environments/environment';
 })
 export class Restservice {
 
-  private baseUrl = environment.apiUrl; // your .NET API
+  private baseUrl = environment.apiUrl+'/api'; // your .NET API
   constructor(private https: HttpClient) { }
 
   login(credentials: any) {
