@@ -1,0 +1,45 @@
+<div class="topbar">
+
+    <!-- LEFT -->
+    <div class="left">
+        <div class="logo">
+            <div class="logo-icon"></div>
+            <span class="logo-text">FinInsight</span>
+        </div>
+    </div>
+
+    <!-- CENTER -->
+    <div class="center">
+        <!-- <input type="text" placeholder="Search funds..." [(ngModel)]="searchText" (keyup.enter)="onSearch()" /> -->
+    </div>
+
+    <!-- RIGHT -->
+    <div class="right">
+
+        <!-- THEME TOGGLE -->
+        <span class="icon" (click)="toggleTheme()">
+            {{ isDark ? '🌙' : '☀️' }}
+        </span>
+
+        <span class="icon" (click)="onHelp()">❓</span>
+        <!-- <span class="icon" (click)="onAdmin()">⚙️</span> -->
+
+        <!-- USER -->
+        <div class="user-menu" (click)="toggleMenu()">
+
+            <!-- AVATAR -->
+            <div class="avatar" *ngIf="isAvatar">
+                {{ getInitials(userName) }}
+            </div>
+
+            <!-- DROPDOWN -->
+            <div class="dropdown" *ngIf="showMenu">
+                <!-- <div class="dropdownitem" (click)="goProfile()">Profile</div> -->
+                <!-- <div class="dropdownitem" (click)="goSettings()">Settings</div> -->
+                <div class="logout dropdownitem" (click)="logout()">Logout</div>
+            </div>
+        </div>
+
+    </div>
+
+</div>

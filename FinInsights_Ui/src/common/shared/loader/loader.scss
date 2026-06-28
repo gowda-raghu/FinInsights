@@ -1,0 +1,128 @@
+/* LOCK SCROLL WHEN LOADER ACTIVE */
+body.loading {
+  overflow: hidden;
+}
+
+/* overlay */
+.loader-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  /* match your purple gradient theme */
+  background: linear-gradient(135deg, rgba(88, 70, 180, 0.6), rgba(130, 100, 220, 0.6));
+  
+  backdrop-filter: blur(10px);
+
+  z-index: 9999;
+
+  animation: fadeIn 0.3s ease;
+}
+
+/* card */
+.loader-card {
+  padding: 35px 45px;
+  border-radius: 20px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+
+  /* glass effect */
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(16px);
+
+  border: 1px solid rgba(255, 255, 255, 0.2);
+
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+
+  animation: scaleIn 0.3s ease;
+}
+
+/* spinner (gradient ring) */
+.spinner {
+  width: 50px;
+  height: 50px;
+
+  border-radius: 50%;
+  border: 4px solid transparent;
+
+  border-top: 4px solid #ffffff;
+  border-right: 4px solid #8f7cff;
+
+  animation: spin 0.9s linear infinite;
+}
+
+/* glowing dot inside */
+.spinner::after {
+  content: '';
+  width: 10px;
+  height: 10px;
+  background: #ffffff;
+  border-radius: 50%;
+
+  position: absolute;
+  top: 6px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  box-shadow: 0 0 10px #ffffff;
+}
+
+/* text */
+.loader-text {
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  opacity: 0.9;
+}
+
+/* subtle pulse */
+.loader-card::before {
+  content: '';
+  position: absolute;
+  width: 120%;
+  height: 120%;
+  border-radius: 20px;
+
+  background: radial-gradient(circle, rgba(255,255,255,0.15), transparent);
+  opacity: 0.5;
+
+  animation: pulse 2s infinite ease-in-out;
+}
+
+/* animations */
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0 }
+  to { opacity: 1 }
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0.85);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes pulse {
+  0% { transform: scale(0.9); opacity: 0.4; }
+  50% { transform: scale(1); opacity: 0.7; }
+  100% { transform: scale(0.9); opacity: 0.4; }
+}

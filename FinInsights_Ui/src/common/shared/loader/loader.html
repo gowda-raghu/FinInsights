@@ -1,0 +1,6 @@
+<div class="loader-overlay" *ngIf="loading$ | async">
+  <div class="loader-card">
+    <div class="spinner"></div>
+    <p>{{ text$ | async }}</p>
+  </div>
+</div>

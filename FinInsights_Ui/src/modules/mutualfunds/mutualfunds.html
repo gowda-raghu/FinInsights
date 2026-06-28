@@ -1,0 +1,143 @@
+<div class="mf-container" *ngIf="!isViewDetail">
+
+    <div class="header-bar">
+        <h2 class="title">Mutual Fund Schemes</h2>
+
+        <!-- SEARCH -->
+        <div class="search-box" *ngIf="!favScreen">
+            <input type="text" placeholder="Search scheme..." (ngModelChange)="onSearchChange($event)"
+                [(ngModel)]="searchText" />
+            <button (click)="onSearch()">🔍</button>
+        </div>
+        <div class="search-box" *ngIf="favScreen">
+            <input type="text" placeholder="Search Fav Scheme..." (ngModelChange)="onFavSearchChange($event)"
+                [(ngModel)]="favsearchText" />
+
+            <!-- <button (click)="onFavSearch()">🔍</button> -->
+        </div>
+        <div class="fav-section">
+            <div class="mail-btn" *ngIf="favScreen">
+                <button (click)="mailFavourites()">Mail Favourites</button>
+            </div>
+            <div [class]="!favScreen?'fav-icon':'fav-icon-selected'" (click)="toggleYourFav()">
+                ⭐
+            </div>
+        </div>
+    </div>
+
+
+    <div class="table-wrapper">
+
+        <table mat-table [dataSource]="schemes" class="mat-elevation-z8">
+
+            <!-- Scheme Code -->
+            <ng-container matColumnDef="schemeCode">
+                <th mat-header-cell *matHeaderCellDef> Scheme Code </th>
+                <td mat-cell *matCellDef="let element"> {{ element.schemeCode }} </td>
+            </ng-container>
+
+            <!-- Scheme Name -->
+            <ng-container matColumnDef="schemeName">
+                <th mat-header-cell *matHeaderCellDef> Scheme Name </th>
+                <td mat-cell *matCellDef="let element">
+                    <div class="scheme-name">
+                        <span>{{ element.schemeName }}</span>
+                        <button mat-icon-button (click)="viewDetails(element)">
+                            <mat-icon>link</mat-icon>
+                        </button>
+                    </div>
+                </td>
+            </ng-container>
+
+            <!-- ISIN Growth -->
+            <ng-container matColumnDef="isinGrowth">
+                <th mat-header-cell *matHeaderCellDef> ISIN Growth </th>
+                <td mat-cell *matCellDef="let element">
+                    {{ element.isinGrowth || '' }}
+                </td>
+            </ng-container>
+
+            <!-- ISIN Dividend -->
+            <ng-container matColumnDef="isinDivReinvestment">
+                <th mat-header-cell *matHeaderCellDef> ISIN Dividend Reinvest </th>
+                <td mat-cell *matCellDef="let element">
+                    {{ element.isinDivReinvestment || '' }}
+                </td>
+            </ng-container>
+
+            <!-- Action -->
+            <ng-container matColumnDef="action">
+                <th mat-header-cell *matHeaderCellDef> Action </th>
+                <td mat-cell *matCellDef="let element">
+                    <button mat-button color="primary" (click)="viewLatestDetails(element)">
+                        View Latest
+                    </button>
+                </td>
+            </ng-container>
+
+            <ng-container matColumnDef="fav">
+                <th mat-header-cell *matHeaderCellDef></th>
+
+                <td mat-cell *matCellDef="let element">
+                    <span class="fav-star" [class.active]="element.isFav" (click)="toggleFav(element)">
+
+                        {{ element.isFav ? '⭐' : '☆' }}
+
+                    </span>
+                </td>
+            </ng-container>
+
+
+            <!-- Header + Row -->
+            <tr mat-header-row *matHeaderRowDef="displayedColumns;sticky: true"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+        </table>
+
+    </div>
+
+    <!-- Pagination -->
+    <mat-paginator *ngIf="this.searchText=='' && this.favsearchText==''" [length]="favScreen?favSchemes.length:1000"
+        [pageSize]="limit" [pageSizeOptions]="[5, 10, 20, 50]" (page)="onPageChange($event)">
+    </mat-paginator>
+
+</div>
+
+<div class="mf-container" *ngIf="isViewDetail">
+    <div class="back-btn" (click)="isViewDetail = false">
+        ← Back
+    </div>
+    <!-- META CARD -->
+    <div class="meta-card" *ngIf="fundData">
+
+        <h2>{{ fundData.meta.scheme_name }}</h2>
+
+        <p><strong>Fund House:</strong> {{ fundData.meta.fund_house }}</p>
+        <p><strong>Category:</strong> {{ fundData.meta.scheme_category }}</p>
+        <p><strong>Type:</strong> {{ fundData.meta.scheme_type }}</p>
+
+    </div>
+
+    <!-- DATE FILTER -->
+    <div class="date-filter">
+
+        <input type="date" [(ngModel)]="startDate" (change)="onDateChange()" />
+        <input type="date" [(ngModel)]="endDate" (change)="onDateChange()" />
+
+    </div>
+
+    <!-- CHART -->
+    <app-nav-chart *ngIf="fundData?.data!=null && fundData?.data.length>0" [navData]="fundData?.data"></app-nav-chart>
+    <div class="ai-btn-container" *ngIf="fundData?.data && fundData.data.length > 0">
+
+        <button class="ai-btn" (click)="analyzeWithAI()" [disabled]="disableAiButton">
+            🤖 Analyze with AI
+        </button>
+        <!-- AI RESULT -->
+        <div #aiContainer class="ai-result" *ngIf="airesut && disableAiButton">
+            <div #aiContainer class="ai-content" [innerHTML]="airesut"></div>
+        </div>
+
+    </div>
+    <div class="noData" *ngIf="fundData?.data.length==0">NO Data Available!Try for other Dates</div>
+</div>

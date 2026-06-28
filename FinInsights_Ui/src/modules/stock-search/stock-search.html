@@ -1,0 +1,108 @@
+<div class="stock-search-page">
+
+    <!-- HERO -->
+
+    <div class="hero" [class.compact]="hasSearched">
+
+        <h1 class="hero-title">
+            📊 Stock Search
+        </h1>
+
+        <p class="hero-subtitle">
+            Discover stocks, companies and market insights instantly
+        </p>
+
+        <div class="search-container">
+
+            <input
+                class="stock-search"
+                type="text"
+                [(ngModel)]="searchText"
+                (keyup.enter)="searchStocks()"
+                placeholder="Search TCS, Apple, Tesla, Infosys..." />
+
+            <button
+                class="search-btn"
+                (click)="searchStocks()">
+
+                🔍 Search
+
+            </button>
+
+        </div>
+
+    </div>
+
+    <!-- RESULTS -->
+
+    <div
+        class="results-section"
+        *ngIf="hasSearched">
+
+        <div class="results-header">
+
+            <h2 class="results-title">
+
+                Search Results
+
+            </h2>
+
+            <input
+                class="stock-search"
+                style="max-width:300px;height:55px"
+                placeholder="Filter results..."
+                (keyup)="applyFilter($event)" />
+
+        </div>
+
+        <!-- STOCK CARDS -->
+
+        <div class="stock-grid">
+
+            <div
+                class="stock-card"
+                *ngFor="let stock of dataSource.filteredData">
+
+                <div class="stock-symbol">
+
+                    {{ stock.displaySymbol }}
+
+                </div>
+
+                <div class="stock-company">
+
+                    {{ stock.description }}
+
+                </div>
+
+                <div class="stock-type">
+
+                    {{ stock.type }}
+
+                </div>
+
+                <button 
+                    class="view-btn disabled"
+                    (click)="viewDetails(stock)">
+
+                    View Details →
+
+                </button>
+
+            </div>
+
+        </div>
+
+        <!-- EMPTY STATE -->
+
+        <div
+            class="empty-state"
+            *ngIf="dataSource.filteredData.length === 0">
+
+            🔍 No stocks found
+
+        </div>
+
+    </div>
+
+</div>

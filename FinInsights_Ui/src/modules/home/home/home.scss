@@ -1,0 +1,262 @@
+/* ==========================================================
+   HOME CONTAINER
+========================================================== */
+
+.home-container {
+
+    min-height: calc(100vh - 72px);
+
+    padding: 40px;
+
+    background: transparent;
+
+    color: var(--text-primary);
+
+}
+
+/* ==========================================================
+   WELCOME CARD
+========================================================== */
+
+.welcome-card {
+
+    background: rgba(255,255,255,.08);
+
+    backdrop-filter: blur(22px);
+    -webkit-backdrop-filter: blur(22px);
+
+    border: 1px solid rgba(255,255,255,.08);
+
+    border-radius: 24px;
+
+    padding: 34px;
+
+    margin-bottom: 34px;
+
+    box-shadow:
+        0 12px 35px rgba(0,0,0,.30),
+        inset 0 1px 1px rgba(255,255,255,.05);
+
+    transition: .35s ease;
+
+}
+
+.welcome-card:hover{
+
+    background: rgba(255,255,255,.10);
+
+}
+
+.welcome-card h2{
+
+    font-size: 28px;
+
+    font-weight: 700;
+
+    color: var(--text-primary);
+
+    margin-bottom: 10px;
+
+}
+
+.welcome-card p{
+
+    color: var(--text-secondary);
+
+    font-size: 17px;
+
+}
+
+/* ==========================================================
+   FEATURES GRID
+========================================================== */
+
+.features{
+
+    display:grid;
+
+    grid-template-columns:repeat(2,minmax(320px,1fr));
+
+    gap:28px;
+
+}
+
+/* ==========================================================
+   FEATURE CARD
+========================================================== */
+
+.feature-card{
+
+    background: rgba(255,255,255,.08);
+
+    backdrop-filter: blur(22px);
+    -webkit-backdrop-filter: blur(22px);
+
+    border: 1px solid rgba(255,255,255,.08);
+
+    border-radius:24px;
+
+    box-shadow:
+        0 12px 35px rgba(0,0,0,.30),
+        inset 0 1px 1px rgba(255,255,255,.05);
+
+    min-height:230px;
+
+    padding:34px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
+
+    cursor:pointer;
+
+    transition:all .35s ease;
+
+}
+
+/* ==========================================================
+   CARD HOVER
+========================================================== */
+
+.feature-card:hover{
+
+    transform:translateY(-10px);
+
+    background:rgba(255,255,255,.12);
+
+    border-color:rgba(143,124,255,.35);
+
+    box-shadow:
+        0 25px 45px rgba(95,72,255,.28);
+
+}
+
+/* ==========================================================
+   ICON
+========================================================== */
+
+.icon{
+
+    font-size:54px;
+
+    margin-bottom:18px;
+
+    transition:.35s;
+
+}
+
+.feature-card:hover .icon{
+
+    transform:scale(1.18) rotate(-5deg);
+
+}
+
+/* ==========================================================
+   TITLE
+========================================================== */
+
+.feature-card h3{
+
+    font-size:20px;
+
+    font-weight:700;
+
+    color:var(--text-primary);
+
+    margin-bottom:12px;
+
+}
+
+/* ==========================================================
+   DESCRIPTION
+========================================================== */
+
+.feature-card p{
+
+    color:var(--text-secondary);
+
+    font-size:15px;
+
+    line-height:1.7;
+
+    max-width:260px;
+
+}
+
+/* ==========================================================
+   TABLET
+========================================================== */
+
+@media(max-width:992px){
+
+    .features{
+
+        grid-template-columns:1fr;
+
+    }
+
+}
+
+/* ==========================================================
+   MOBILE
+========================================================== */
+
+@media(max-width:600px){
+
+    .home-container{
+
+        padding:18px;
+
+    }
+
+    .welcome-card{
+
+        padding:24px;
+
+    }
+
+    .welcome-card h2{
+
+        font-size:23px;
+
+    }
+
+    .welcome-card p{
+
+        font-size:15px;
+
+    }
+
+    .feature-card{
+
+        min-height:200px;
+
+        padding:26px;
+
+    }
+
+    .feature-card h3{
+
+        font-size:22px;
+
+    }
+
+    .feature-card p{
+
+        font-size:14px;
+
+    }
+
+    .icon{
+
+        font-size:46px;
+
+    }
+
+}

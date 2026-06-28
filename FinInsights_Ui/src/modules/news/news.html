@@ -1,0 +1,132 @@
+<div class="news-container">
+
+  <div class="header-row">
+
+    <h2>Latest Financial News</h2>
+
+    <mat-form-field appearance="outline" class="country-dropdown">
+      <mat-label>Country</mat-label>
+
+      <mat-select
+        [(ngModel)]="selectedCountryCode"
+        (selectionChange)="onCountryChange()">
+
+        <mat-option
+          *ngFor="let country of countryList"
+          [value]="country.countryCode">
+
+          <span class="flag">
+            {{ country.flag }}
+          </span>
+
+          {{ country?.countryName }}
+
+        </mat-option>
+
+      </mat-select>
+
+    </mat-form-field>
+
+  </div>
+
+  <div class="news-grid" *ngIf="latestnewslist.length>0">
+
+    <mat-card
+      class="news-card"
+      *ngFor="let news of latestnewslist">
+
+      <mat-card-header>
+
+        <div class="title-section">
+
+          <mat-card-title>
+            {{ news.title }}
+          </mat-card-title>
+
+          <div class="source">
+            {{ news.source }}
+          </div>
+
+        </div>
+
+      </mat-card-header>
+
+      <mat-card-content>
+
+        <div class="chip-container">
+
+          <span
+            class="tag-chip"
+            *ngFor="let tag of news.keywords | slice:0:4">
+
+            {{ tag }}
+
+          </span>
+
+        </div>
+
+      </mat-card-content>
+
+      <mat-card-actions>
+
+        <button
+          mat-button
+          color="primary"
+          (click)="toggleNews(news.id)">
+
+          {{ expandedNewsId === news.id ? 'Collapse' : 'Expand' }}
+
+        </button>
+
+      </mat-card-actions>
+
+      <div
+        class="expanded-content"
+        *ngIf="expandedNewsId === news.id">
+
+        <img
+          *ngIf="news.imageUrl"
+          [src]="news.imageUrl"
+          class="news-image"
+          alt="News Image">
+
+        <p class="description">
+          {{ news.description }}
+        </p>
+
+        <div class="entity-section">
+
+          <h4>Related Entities</h4>
+
+          <span
+            class="entity-chip"
+            *ngFor="let entity of news.entities">
+
+            {{ entity.name }}
+          </span>
+
+        </div>
+
+        <a
+          *ngIf="news.url"
+          [href]="news.url"
+          target="_blank"
+          class="read-more">
+
+          Read Full Article
+
+        </a>
+
+      </div>
+
+    </mat-card>
+
+  </div>
+
+  <div class="news-grid noNewsGrid" *ngIf="latestnewslist.length==0">
+    <div class="noLatestNews">
+      No Latest News Available for selected country!
+    </div>
+  </div>
+
+</div>

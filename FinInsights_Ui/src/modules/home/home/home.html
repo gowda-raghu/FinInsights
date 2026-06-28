@@ -1,0 +1,48 @@
+<div class="home-container">
+
+  <!-- Welcome -->
+  <div class="welcome-card">
+    <h2>Welcome, {{ username }} 👋</h2>
+    <p>Explore your dashboard</p>
+  </div>
+
+  <!-- Features -->
+  <div class="features">
+
+    <div class="feature-card" (click)="navigate('mf')">
+      <div class="icon">📈</div>
+      <h3>Mutual Funds</h3>
+      <p>Track and invest in funds</p>
+    </div>
+
+    <div class="feature-card" (click)="navigate('news')">
+      <div class="icon">📰</div>
+      <h3>News</h3>
+      <p>Stay updated with market trends</p>
+    </div>
+
+
+    <div class="feature-card" (click)="navigate('compareMF')">
+      <div class="icon">⚖️</div>
+      <h3>Compare Funds</h3>
+      <p>Analyze and compare mutual funds side by side</p>
+    </div>
+
+     <div class="feature-card" (click)="navigate('searchStock')">
+      <div class="icon">📊</div>
+      <h3>Stock Search</h3>
+      <p>Analyze stocks, trends & company data</p>
+    </div>
+
+
+    <div class="feature-card">
+      <div class="icon">🤖</div>
+      <h3>Chat with AI</h3>
+      <p>Ask anything about finance</p>
+    </div>
+
+   
+
+  </div>
+
+</div>

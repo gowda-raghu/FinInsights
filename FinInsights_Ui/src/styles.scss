@@ -1,0 +1,581 @@
+@use '@angular/material' as mat;
+
+html {
+  height: 100%;
+
+  @include mat.theme((color: (primary: mat.$magenta-palette,
+        tertiary: mat.$violet-palette,
+      ),
+      typography: Roboto,
+      density: 0,
+    ));
+}
+
+body {
+  color-scheme: light;
+
+  background-color: var(--mat-sys-surface);
+  color: var(--mat-sys-on-surface);
+  font: var(--mat-sys-body-medium);
+
+  margin: 0;
+  height: 100%;
+  //overflow: hidden;
+}
+
+/* ===========================================
+   GOOGLE FONT
+=========================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+
+  width: 100%;
+  height: 100%;
+
+  font-family: 'Inter', sans-serif;
+
+}
+
+/* ===========================================
+   DARK THEME VARIABLES
+=========================================== */
+
+:root {
+
+  --background:
+    radial-gradient(circle at top left, #4338ca22 0%, transparent 30%),
+    radial-gradient(circle at bottom right, #8b5cf622 0%, transparent 35%),
+    linear-gradient(135deg, #0f172a 0%, #17172f 55%, #221b45 100%);
+
+  --topbar:
+    rgba(20, 22, 35, .75);
+
+  --glass:
+    rgba(255, 255, 255, .08);
+
+  --glass-hover:
+    rgba(255, 255, 255, .12);
+
+  --glass-border:
+    rgba(255, 255, 255, .08);
+
+  --primary:
+    #8f7cff;
+
+  --primary-light:
+    #b8a7ff;
+
+  --text:
+    #ffffff;
+
+  --text-secondary:
+    #c4c7d8;
+
+  --shadow:
+    0 12px 40px rgba(0, 0, 0, .35);
+
+  --blur:
+    blur(22px);
+
+  --primary: #8f7cff;
+  --primary-light: #b29bff;
+
+  --text: #ffffff;
+  --text-primary: #ffffff;
+  --text-secondary: #c8cce5;
+  --subText: #aeb5d3;
+
+  --glass: rgba(255, 255, 255, .08);
+  --glass-hover: rgba(255, 255, 255, .12);
+  --glass-border: rgba(255, 255, 255, .10);
+
+  --card-shadow:
+    0 12px 35px rgba(0, 0, 0, .35),
+    inset 0 1px 1px rgba(255, 255, 255, .05);
+
+  --success: #3ddc97;
+
+  --warning: #ffd166;
+
+  --danger: #ff6b81;
+
+  --chip-bg: rgba(255, 255, 255, .10);
+
+  --chip-hover: rgba(255, 255, 255, .18);
+
+  --primary: #8f7cff;
+  --primary-dark: #6d5ef7;
+
+  --success: #22c55e;
+  --danger: #ef4444;
+
+  --glass: rgba(255, 255, 255, .08);
+  --glass-hover: rgba(255, 255, 255, .12);
+  --glass-border: rgba(255, 255, 255, .10);
+
+  --text: #ffffff;
+  --text-secondary: #c4c8df;
+  --subText: #a6abc7;
+
+  --card-shadow:
+    0 12px 35px rgba(0, 0, 0, .35);
+
+
+}
+
+.glass-card {
+
+  background: var(--glass);
+
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+
+  border: 1px solid var(--glass-border);
+
+  border-radius: 24px;
+
+  box-shadow: var(--card-shadow);
+
+  transition: .35s;
+
+}
+
+.glass-card:hover {
+
+  background: var(--glass-hover);
+
+}
+
+/* ==========================================================
+   GLASS BUTTON
+========================================================== */
+
+.glass-button {
+
+  border: none;
+
+  border-radius: 14px;
+
+  cursor: pointer;
+
+  color: white;
+
+  font-weight: 600;
+
+  background:
+    linear-gradient(135deg,
+      var(--primary),
+      var(--primary-dark));
+
+  transition: .3s;
+
+}
+
+.glass-button:hover {
+
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 15px 30px rgba(124, 58, 237, .35);
+
+}
+
+/* ==========================================================
+   INPUTS
+========================================================== */
+
+.glass-input {
+
+  background: var(--glass);
+
+  border: 1px solid var(--glass-border);
+
+  backdrop-filter: blur(18px);
+
+  border-radius: 14px;
+
+}
+
+/* ==========================================================
+   AI CARD
+========================================================== */
+
+.glass-ai {
+
+  background: var(--glass);
+
+  border: 1px solid var(--glass-border);
+
+  backdrop-filter: blur(18px);
+
+  border-radius: 24px;
+
+  box-shadow: var(--card-shadow);
+
+}
+
+/* ==========================================================
+   WINNER CARD
+========================================================== */
+
+.glass-highlight {
+
+  background:
+    linear-gradient(135deg,
+      rgba(143, 124, 255, .95),
+      rgba(109, 94, 247, .95));
+
+  border-radius: 24px;
+
+  color: white;
+
+  box-shadow:
+    0 18px 35px rgba(124, 58, 237, .35);
+
+}
+
+/* ==========================================================
+   CHART CARD
+========================================================== */
+
+.glass-chart {
+
+  background: var(--glass);
+
+  backdrop-filter: blur(20px);
+
+  border: 1px solid var(--glass-border);
+
+  border-radius: 24px;
+
+  box-shadow: var(--card-shadow);
+
+}
+
+/* ==========================================================
+   CHIP
+========================================================== */
+
+.glass-chip {
+
+  padding: 8px 15px;
+
+  border-radius: 40px;
+
+  background: var(--glass);
+
+  border: 1px solid var(--glass-border);
+
+}
+
+/* ==========================================================
+   MATERIAL CARD
+========================================================== */
+
+.mat-mdc-card {
+
+  background: transparent !important;
+
+  //box-shadow: none !important;
+
+  color: inherit !important;
+
+}
+
+.glass-chip {
+
+  padding: 7px 14px;
+
+  border-radius: 50px;
+
+  background: var(--chip-bg);
+
+  border: 1px solid var(--glass-border);
+
+  backdrop-filter: blur(16px);
+
+  color: var(--text);
+
+  font-size: 13px;
+
+  transition: .3s;
+
+}
+
+.glass-chip:hover {
+
+  background: var(--chip-hover);
+
+}
+
+/* ==========================================================
+   SCROLLBAR
+========================================================== */
+
+::-webkit-scrollbar {
+
+  width: 8px;
+  height: 8px;
+
+}
+
+::-webkit-scrollbar-thumb {
+
+  background: rgba(255, 255, 255, .18);
+
+  border-radius: 20px;
+
+}
+
+/* Selected value */
+
+.mat-mdc-select {
+  color: var(--text) !important;
+}
+
+.mat-mdc-select-value-text {
+  color: var(--text) !important;
+}
+
+.mat-mdc-select-arrow {
+  color: var(--text) !important;
+}
+
+/* Label */
+
+.mat-mdc-form-field .mdc-floating-label {
+  color: var(--text-secondary) !important;
+}
+
+/* Input */
+
+.mat-mdc-form-field input {
+  color: var(--text) !important;
+}
+
+/* ==========================================================
+   MATERIAL FORM FIELD
+========================================================== */
+
+.mat-mdc-form-field {
+  width: 100%;
+}
+
+.mat-mdc-text-field-wrapper {
+
+  background: var(--glass) !important;
+
+  backdrop-filter: blur(18px);
+
+  border: 1px solid var(--glass-border);
+
+  border-radius: 14px !important;
+
+}
+
+/* Selected Value */
+
+.mat-mdc-select-value,
+.mat-mdc-select-value-text,
+.mat-mdc-select-min-line {
+
+  color: var(--text) !important;
+
+}
+
+.mat-mdc-select-arrow {
+
+  color: var(--text) !important;
+
+}
+
+/* Label */
+
+.mat-mdc-floating-label {
+
+  color: var(--text-secondary) !important;
+
+}
+
+.mat-focused .mat-mdc-floating-label {
+
+  color: var(--primary) !important;
+
+}
+
+/* Outline */
+
+.mdc-notched-outline__leading,
+.mdc-notched-outline__notch,
+.mdc-notched-outline__trailing {
+
+  border-color: var(--glass-border) !important;
+
+}
+
+.mat-focused .mdc-notched-outline__leading,
+.mat-focused .mdc-notched-outline__notch,
+.mat-focused .mdc-notched-outline__trailing {
+
+  border-color: var(--primary) !important;
+
+}
+
+/* ==========================================================
+   DROPDOWN PANEL
+========================================================== */
+
+
+
+/* ==========================================================
+   OPTIONS
+========================================================== */
+
+.mat-mdc-option {
+
+  color: var(--text) !important;
+
+  transition: .25s;
+
+  border-radius: 10px;
+
+  margin: 4px 8px;
+
+}
+
+/* Hover */
+
+.mat-mdc-option:hover {
+
+  background: rgba(143, 124, 255, .18) !important;
+
+}
+
+/* Focus */
+
+.mat-mdc-option.mdc-list-item--selected {
+
+  background: rgba(143, 124, 255, .25) !important;
+
+  color: white !important;
+
+}
+
+/* Keyboard focus */
+
+.mat-mdc-option.mdc-list-item--activated {
+
+  background: rgba(143, 124, 255, .15) !important;
+
+}
+
+/* Ripple */
+
+.mat-ripple-element {
+
+  background: rgba(143, 124, 255, .25) !important;
+
+}
+
+/* ===========================================
+   BODY
+=========================================== */
+
+body {
+
+  background: var(--background);
+
+  color: var(--text);
+
+  min-height: 100vh;
+  --logotext: var(--text);
+
+}
+
+/* ==========================================================
+   LIGHT THEME
+========================================================== */
+
+/* ==========================================================
+   LIGHT THEME
+========================================================== */
+
+body.light-theme {
+
+  --primary: #6b5cff;
+  --primary-light: #8b7dff;
+
+  --text: #2d3154;
+  --text-primary: #2d3154;
+  --text-secondary: #5f6486;
+  --subText: #7c81a2;
+
+  --glass: rgba(255, 255, 255, .60);
+  --glass-hover: rgba(255, 255, 255, .78);
+  --glass-border: rgba(255, 255, 255, .75);
+
+  --card-shadow:
+    0 12px 35px rgba(120, 100, 255, .15),
+    inset 0 1px 1px rgba(255, 255, 255, .75);
+
+  background:
+    radial-gradient(circle at top left,
+      rgba(143, 124, 255, .18) 0%,
+      transparent 32%),
+
+    radial-gradient(circle at bottom right,
+      rgba(107, 92, 255, .12) 0%,
+      transparent 35%),
+
+    radial-gradient(circle at top right,
+      rgba(196, 181, 253, .18) 0%,
+      transparent 28%),
+
+    linear-gradient(135deg,
+      #faf9ff 0%,
+      #f4f5ff 45%,
+      #eef2ff 100%);
+
+  color: var(--text);
+  --topbar: rgba(20, 22, 35, .80);
+  --logotext: white;
+}
+
+body.dark-theme {
+  div.mat-mdc-select-panel {
+
+    background: rgba(24, 28, 45, .92) !important;
+
+    backdrop-filter: blur(24px);
+
+    border: 1px solid rgba(255, 255, 255, .08);
+
+    border-radius: 18px !important;
+
+    box-shadow:
+      0 20px 45px rgba(0, 0, 0, .35);
+
+  }
+}
+
+body {
+
+  background:
+    radial-gradient(circle at top left, rgba(124, 92, 250, .15), transparent 30%),
+    radial-gradient(circle at bottom right, rgba(108, 84, 233, .12), transparent 35%),
+    linear-gradient(135deg, #0f172a, #1c1b3a, #241b47);
+
+  color: var(--text);
+
+}
+
+/* You can add global styles to this file */

@@ -1,0 +1,319 @@
+<div class="compare-card" >
+
+    <div class="compare-header">
+        <h2>⚖️ Compare Funds</h2>
+        <p>Select two favourite funds to compare performance and insights</p>
+    </div>
+
+    <div class="compare-row">
+
+        <!-- Fund 1 -->
+        <div class="dropdown-container"   [ngClass]="{ disabled: favourites.length < 2 }">
+            <!-- <label>Fund 1</label> -->
+            <mat-form-field class="fund-select">
+
+                <mat-label>Fund 1</mat-label>
+
+                <mat-select [(value)]="selectedFund1">
+
+                    <mat-option *ngFor="let fund of fund1Options" [value]="fund">
+
+                        {{ fund.schemeName }}
+
+                    </mat-option>
+
+                </mat-select>
+
+            </mat-form-field>
+            <!-- <select [(ngModel)]="selectedFund1" class="compare-dropdown">
+
+                <option [ngValue]="null">
+                    Select Fund
+                </option>
+
+                <option *ngFor="let fund of fund1Options" [ngValue]="fund">
+
+                    {{ fund.schemeName }}
+
+                </option>
+
+            </select> -->
+
+        </div>
+
+        <!-- Fund 2 -->
+        <div class="dropdown-container"   [ngClass]="{ disabled: favourites.length < 2 }">
+            <!-- <label>Fund 2</label> -->
+            <mat-form-field class="fund-select">
+
+                <mat-label>Fund 2</mat-label>
+
+                <mat-select [(value)]="selectedFund2">
+
+                    <mat-option *ngFor="let fund of fund2Options" [value]="fund">
+
+                        {{ fund.schemeName }}
+
+                    </mat-option>
+
+                </mat-select>
+
+            </mat-form-field>
+            <!-- <select [(ngModel)]="selectedFund2" class="compare-dropdown">
+
+                <option [ngValue]="null">
+                    Select Fund
+                </option>
+
+                <option *ngFor="let fund of fund2Options" [ngValue]="fund">
+
+                    {{ fund.schemeName }}
+
+                </option>
+
+            </select> -->
+        </div>
+
+    </div>
+
+    <button class="compare-btn" [disabled]="!selectedFund1 || !selectedFund2" (click)="compareFunds()">
+
+        📊 Compare Funds
+
+    </button>
+
+</div>
+
+<div class="compare-result" *ngIf="fund1Data && fund2Data">
+
+    <div class="compare-grid">
+
+        <!-- FUND 1 -->
+        <div class="compare-fund-card">
+
+            <h2>
+                {{ fund1Data.meta.scheme_name }}
+            </h2>
+
+            <div class="compare-item">
+                <span>Fund House</span>
+                <strong>
+                    {{ fund1Data.meta.fund_house }}
+                </strong>
+            </div>
+
+            <div class="compare-item">
+                <span>Category</span>
+                <strong>
+                    {{ fund1Data.meta.scheme_category }}
+                </strong>
+            </div>
+
+            <div class="compare-item">
+                <span>Type</span>
+                <strong>
+                    {{ fund1Data.meta.scheme_type }}
+                </strong>
+            </div>
+
+            <div class="compare-item">
+                <span>Latest NAV</span>
+                <strong>
+                    {{ fund1Data.data[0]?.nav }}
+                </strong>
+            </div>
+
+            <div class="compare-item">
+                <span>Records</span>
+                <strong>
+                    {{ fund1Data.data.length }}
+                </strong>
+            </div>
+
+        </div>
+
+        <!-- FUND 2 -->
+        <div class="compare-fund-card">
+
+            <h2>
+                {{ fund2Data.meta.scheme_name }}
+            </h2>
+
+            <div class="compare-item">
+                <span>Fund House</span>
+                <strong>
+                    {{ fund2Data.meta.fund_house }}
+                </strong>
+            </div>
+
+            <div class="compare-item">
+                <span>Category</span>
+                <strong>
+                    {{ fund2Data.meta.scheme_category }}
+                </strong>
+            </div>
+
+            <div class="compare-item">
+                <span>Type</span>
+                <strong>
+                    {{ fund2Data.meta.scheme_type }}
+                </strong>
+            </div>
+
+            <div class="compare-item">
+                <span>Latest NAV</span>
+                <strong>
+                    {{ fund2Data.data[0]?.nav }}
+                </strong>
+            </div>
+
+            <div class="compare-item">
+                <span>Records</span>
+                <strong>
+                    {{ fund2Data.data.length }}
+                </strong>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<div class="comparison-chart-card" *ngIf="comparisonChartData?.length">
+
+    <div class="section-header">
+
+        <h2>📈 Growth of ₹100 Invested</h2>
+
+        <p>
+            Compare historical performance by normalizing
+            both funds to a ₹100 investment.
+        </p>
+
+    </div>
+
+    <app-nav-chart [navData]="comparisonChartData" [type]="'compare'" [fund1Name]="fund1Data.meta.scheme_name"
+        [fund2Name]="fund2Data.meta.scheme_name">
+    </app-nav-chart>
+
+</div>
+
+<!-- RETURN COMPARISON -->
+
+<div class="returns-section" *ngIf="fund1Data && fund2Data">
+
+    <h2>
+        📊 Return Comparison
+    </h2>
+
+    <div class="return-grid">
+
+        <!-- Fund 1 -->
+
+        <div class="return-card">
+
+            <div class="fund-name">
+
+                {{ fund1Data.meta.scheme_name }}
+
+            </div>
+
+            <div class="return-value" [ngClass]="{
+                  positive: fund1Return >= 0,
+                  negative: fund1Return < 0
+                }">
+
+                {{ fund1Return }}%
+
+            </div>
+
+        </div>
+
+        <!-- Fund 2 -->
+
+        <div class="return-card">
+
+            <div class="fund-name">
+
+                {{ fund2Data.meta.scheme_name }}
+
+            </div>
+
+            <div class="return-value" [ngClass]="{
+                  positive: fund2Return >= 0,
+                  negative: fund2Return < 0
+                }">
+
+                {{ fund2Return }}%
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- WINNER -->
+
+<div class="winner-card" *ngIf="winnerFundName">
+
+    <div class="winner-title">
+
+        🏆 Better Performer
+
+    </div>
+
+    <div class="winner-name">
+
+        {{ winnerFundName }}
+
+    </div>
+
+    <div class="winner-return">
+
+        Return: {{ winnerFundReturn }}%
+
+    </div>
+
+</div>
+
+<!-- AI ANALYSIS -->
+
+<div class="ai-analysis-section" *ngIf="fund1Data && fund2Data">
+
+    <div class="section-title">
+
+        <h2>🤖 AI Fund Comparison</h2>
+
+        <button mat-raised-button class="compare-ai-btn" [disabled]="disableCompareAiButton" (click)="GetAIInsights()">
+
+            Analyze Comparison
+
+        </button>
+
+    </div>
+
+    <!-- LOADING -->
+
+    <div *ngIf="isAiLoading" class="ai-loading-container">
+
+        <div class="ai-skeleton-card"></div>
+        <div class="ai-skeleton-card"></div>
+        <div class="ai-skeleton-card"></div>
+        <div class="ai-skeleton-card"></div>
+
+    </div>
+
+    <!-- RESULT -->
+
+    <div class="ai-result" *ngIf="compareAiResult && !isAiLoading">
+
+        <div class="ai-content" [innerHTML]="compareAiResult">
+
+        </div>
+
+    </div>
+
+</div>

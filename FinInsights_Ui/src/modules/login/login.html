@@ -1,0 +1,133 @@
+<!-- <p>{{token}}</p>
+<input type="text" [(ngModel)]="id">
+<button (click)="getUserById()">Get User</button>
+<div *ngIf="users!=null">
+    <div *ngFor="let u of users">
+        <div>{{u.username}}</div>
+        <div>{{u.email}}</div>
+
+    </div>
+</div> -->
+<div class="login-container">
+    <div class="login-card" *ngIf="!isRegisterMode && !isOtpGenerated">
+        <h2 class="title">Welcome Back</h2>
+        <p class="subtitle">Login to your account</p>
+
+        <form (ngSubmit)="onLogin()" #loginForm="ngForm">
+
+            <!-- Email -->
+            <div class="form-group">
+                <input type="email" name="email" [(ngModel)]="email" required placeholder=" " />
+                <label>Email</label>
+            </div>
+
+            <!-- Password -->
+            <div class="form-group">
+                <input [type]="showPassword ? 'text' : 'password'" name="password" [(ngModel)]="password" required
+                    placeholder=" " />
+                <label>Password</label>
+
+                <span class="toggle-password" (click)="togglePassword()">
+                    {{ showPassword ? 'Hide' : 'Show' }}
+                </span>
+            </div>
+
+            <!-- Remember me -->
+            <div class="options">
+                <label>
+                    <input type="checkbox" (change)="Remember()" [(ngModel)]="rememberMe" name="rememberMe" />
+                    Remember me
+                </label>
+
+                <a href="#">Forgot Password?</a>
+            </div>
+             
+            <!-- Error -->
+            <div class="error" *ngIf="errorMessage">
+                {{ errorMessage }}
+            </div>
+
+            <!-- Button -->
+            <button type="submit" [disabled]="loginForm.invalid">
+                {{ loading ? 'Login' : 'Login' }}
+            </button>
+
+            <p class="switch-mode">
+                {{ isRegisterMode ? 'Already have an account?' : 'Don’t have an account?' }}
+                <span (click)="isRegisterMode = !isRegisterMode">
+                    {{ isRegisterMode ? 'Login' : 'Create Account' }}
+                </span>
+            </p>
+
+        </form>
+    </div>
+    <div class="login-card" *ngIf="isRegisterMode && !isOtpGenerated">
+        <h2 class="title">Create Account</h2>
+        <p class="subtitle">Sign up to get started</p>
+
+        <form (ngSubmit)="onRegister()" #registerForm="ngForm">
+
+            <!-- Name -->
+            <div class="form-group">
+                <input type="text" name="name" [(ngModel)]="name" required placeholder=" " />
+                <label>Name</label>
+            </div>
+
+            <!-- Email -->
+            <div class="form-group">
+                <input type="email" name="regEmail" [(ngModel)]="regemail" required placeholder=" " />
+                <label>Email</label>
+            </div>
+
+            <!-- Password -->
+            <div class="form-group">
+                <input type="password" name="regPassword" minlength="6" [(ngModel)]="regpassword" required
+                    #regPasswordRef="ngModel" placeholder=" " />
+                <label>Password</label>
+                <div class="error" *ngIf="regPasswordRef.errors?.['minlength'] && regPasswordRef.touched">
+                    Password must be at least 6 characters
+                </div>
+            </div>
+
+            <!-- Confirm Password -->
+            <div class="form-group">
+                <input type="password" name="confirmPassword" [(ngModel)]="confirmPassword" required placeholder=" " />
+                <label>Confirm Password</label>
+            </div>
+
+            <!-- Error -->
+            <div class="error" *ngIf="errorMessage">
+                {{ errorMessage }}
+            </div>
+
+
+            <!-- Button -->
+            <button type="submit" [disabled]="registerForm.invalid">
+                Create Account
+            </button>
+            <p class="switch-mode">
+                {{ isRegisterMode ? 'Already have an account?' : 'Don’t have an account?' }}
+                <span (click)="isRegisterMode = !isRegisterMode">
+                    {{ isRegisterMode ? 'Login' : 'Create Account' }}
+                </span>
+            </p>
+        </form>
+    </div>
+    <!-- OTP SECTION -->
+    <div class="otp-section" *ngIf="isOtpGenerated">
+
+        <p class="otp-message">
+            📩 A 6-digit OTP has been sent to your email. Please enter it below.
+        </p>
+
+        <div class="form-group">
+            <input type="text" name="otp" [(ngModel)]="otp" maxlength="6" required placeholder=" " />
+            <label>Enter OTP</label>
+        </div>
+
+        <button type="button" (click)="onRegister()" [disabled]="!otp || otp.length < 6">
+            Verify OTP
+        </button>
+
+    </div>
+</div>

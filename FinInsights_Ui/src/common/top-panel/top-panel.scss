@@ -1,0 +1,200 @@
+.topbar{
+
+    height:72px;
+
+    padding:0 30px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    position:sticky;
+
+    top:0;
+
+    z-index:999;
+
+    background:var(--topbar);
+
+    backdrop-filter:var(--blur);
+
+    border-bottom:1px solid var(--glass-border);
+
+    box-shadow:var(--shadow);
+
+}
+
+/* LEFT */
+
+.logo{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:14px;
+
+}
+
+.logo-icon{
+
+       width: 70px;
+    height: 70px;
+
+    background:url("../../images/fininsights.png")
+        center/contain
+        no-repeat;
+    background-image: url("../../images/fininsights.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    transition:.3s;
+
+}
+
+.logo-icon:hover{
+
+    transform:rotate(-5deg) scale(1.08);
+
+}
+
+.logo-text{
+
+    font-size:23px;
+
+    font-weight:700;
+
+    color:var(--logotext);
+
+}
+
+/* RIGHT */
+
+.right{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:18px;
+
+}
+
+/* ICON */
+
+.icon{
+
+    width:42px;
+
+    height:42px;
+
+    border-radius:50%;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    cursor:pointer;
+
+    background:var(--glass);
+
+    backdrop-filter:var(--blur);
+
+    border:1px solid var(--glass-border);
+
+    transition:.3s;
+
+}
+
+.icon:hover{
+
+    transform:translateY(-2px);
+
+    background:var(--glass-hover);
+
+    box-shadow:
+
+        0 10px 25px rgba(143,124,255,.28);
+
+}
+
+/* AVATAR */
+
+.avatar{
+
+    width:42px;
+
+    height:42px;
+
+    border-radius:50%;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-weight:700;
+
+    background:linear-gradient(
+
+        135deg,
+
+        #8f7cff,
+
+        #6d5ef7
+
+    );
+
+}
+
+/* DROPDOWN */
+
+.dropdown{
+
+    position:absolute;
+
+    right:0;
+
+    top:60px;
+
+    width:180px;
+
+    overflow:hidden;
+
+    border-radius:18px;
+
+    background:var(--glass);
+
+    backdrop-filter:var(--blur);
+
+    border:1px solid var(--glass-border);
+
+    box-shadow:var(--shadow);
+
+}
+
+.dropdown div{
+
+    padding:14px 18px;
+
+    transition:.25s;
+
+    cursor:pointer;
+
+}
+
+.dropdown div:hover{
+
+    background:rgba(143,124,255,.18);
+
+}
+
+.logout{
+
+    color:#ff7070;
+
+}

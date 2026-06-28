@@ -1,0 +1,13 @@
+<div *ngIf="message" class="alert-overlay" (click)="close()">
+  <div class="alert-box" (click)="$event.stopPropagation()">
+    
+    <div class="alert-content">
+      <span class="alert-message">
+        {{ message }}
+      </span>
+
+      <span class="alert-close" (click)="close()">✖</span>
+    </div>
+
+  </div>
+</div>
