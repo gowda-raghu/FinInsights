@@ -58,7 +58,11 @@ builder.Services.AddScoped<IServiceInvoker, ServiceInvoker>();
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowAll",
-        policy => policy.WithOrigins("AllowAll")
+        policy => policy.WithOrigins(
+            "http://localhost:4200",
+            "https://fin-insights-3mhz.vercel.app",
+            "https://fin-insights-3mhz-git-prod-fin-insight.vercel.app"
+        )
                         .AllowAnyMethod()
                         .AllowAnyHeader());
 });
