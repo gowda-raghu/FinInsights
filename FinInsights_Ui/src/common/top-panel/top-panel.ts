@@ -53,7 +53,9 @@ export class TopPanel {
   }
 
   onHelp() {
-    alert('Help coming soon');
+
+    this.router.navigate(['/help']);
+
   }
 
   onAdmin() {

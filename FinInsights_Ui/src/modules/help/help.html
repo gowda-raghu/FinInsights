@@ -1,0 +1,176 @@
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+<div class="help-page">
+
+    <div class="hero">
+
+        <div class="hero-content">
+
+            <span class="badge">
+                Help Center
+            </span>
+
+            <h1>
+                How can we help you today?
+            </h1>
+
+            <p>
+                Browse guides, FAQs and feature documentation for FinInsights.
+            </p>
+
+            <div class="search-box">
+
+                <span class="material-symbols-outlined">
+                    search
+                </span>
+
+                <input
+                    type="text"
+                    [(ngModel)]="searchText"
+                    (change)="onSearch()"
+                    placeholder="Search help topics..." />
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="cards-container">
+
+        <div
+            class="help-card"
+            *ngFor="let card of filteredCards"
+            (click)="selectCard(card)">
+
+            <div
+                class="icon-circle"
+                [style.background]="card.color">
+
+                <span class="material-symbols-outlined">
+                    {{card.icon}}
+                </span>
+
+            </div>
+
+            <div class="card-content">
+
+                <h2>
+                    {{card.title}}
+                </h2>
+
+                <p>
+                    {{card.description}}
+                </p>
+
+            </div>
+
+            <div class="arrow">
+
+                <span class="material-symbols-outlined">
+                    arrow_forward_ios
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- ========================= -->
+
+<div
+    class="overlay"
+    *ngIf="selectedCard"
+    (click)="closeCard()">
+
+</div>
+
+
+<div
+    class="details-panel"
+    [class.open]="selectedCard">
+
+    <div class="details-header">
+
+        <div
+            class="details-icon"
+            [style.background]="selectedCard?.color">
+
+            <span class="material-symbols-outlined">
+
+                {{selectedCard?.icon}}
+
+            </span>
+
+        </div>
+
+        <div>
+
+            <h2>
+
+                {{selectedCard?.title}}
+
+            </h2>
+
+            <p>
+
+                {{selectedCard?.description}}
+
+            </p>
+
+        </div>
+
+        <button
+            class="close-btn"
+            (click)="closeCard()">
+
+            <span class="material-symbols-outlined">
+
+                close
+
+            </span>
+
+        </button>
+
+    </div>
+
+    <div class="details-body">
+
+        <div
+            class="detail-item"
+            *ngFor="let item of selectedCard?.items">
+
+            <div class="detail-icon">
+
+                <span class="material-symbols-outlined">
+
+                    check_circle
+
+                </span>
+
+            </div>
+
+            <div>
+
+                <h3>
+
+                    {{item.title}}
+
+                </h3>
+
+                <p>
+
+                    {{item.description}}
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

@@ -1,0 +1,219 @@
+[
+  {
+    "id": 1,
+    "title": "Getting Started",
+    "icon": "rocket_launch",
+    "color": "#4F46E5",
+    "description": "Learn how to get started with FinInsights.",
+    "items": [
+      {
+        "title": "Create an Account",
+        "description": "Register using your email address and create a secure password."
+      },
+      {
+        "title": "Verify Email",
+        "description": "Enter the OTP sent to your registered email to activate your account."
+      },
+      {
+        "title": "Login",
+        "description": "Sign in securely using your registered credentials."
+      },
+      {
+        "title": "Search Investments",
+        "description": "Search Mutual Funds or Stocks from the dashboard."
+      },
+      {
+        "title": "Save Favourites",
+        "description": "Add your preferred Mutual Funds and Stocks to your favourites list."
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "title": "Mutual Funds",
+    "icon": "trending_up",
+    "color": "#0EA5E9",
+    "description": "Explore and analyze Mutual Funds.",
+    "items": [
+      {
+        "title": "Search Funds",
+        "description": "Find Mutual Funds using fund names."
+      },
+      {
+        "title": "Historical NAV",
+        "description": "View NAV trends for any selected date range."
+      },
+      {
+        "title": "Latest NAV",
+        "description": "Check the latest available NAV."
+      },
+      {
+        "title": "Compare Funds",
+        "description": "Compare multiple funds side by side."
+      },
+      {
+        "title": "AI Analysis",
+        "description": "Generate AI-powered analysis of a selected Mutual Fund."
+      },
+      {
+        "title": "Email Favourites",
+        "description": "Email your saved favourites using Emailium."
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "title": "Stocks",
+    "icon": "candlestick_chart",
+    "color": "#10B981",
+    "description": "Search and monitor Stocks.",
+    "items": [
+      {
+        "title": "Search Stocks",
+        "description": "Search stocks by company name or ticker."
+      },
+      {
+        "title": "Company Details",
+        "description": "View company information and market details."
+      },
+      {
+        "title": "Latest Market Price",
+        "description": "Check the latest stock price."
+      },
+      {
+        "title": "Market Summary",
+        "description": "View important financial indicators."
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "title": "Latest News",
+    "icon": "newspaper",
+    "color": "#F59E0B",
+    "description": "Stay updated with market news.",
+    "items": [
+      {
+        "title": "Country Selection",
+        "description": "Select a country to view relevant market news."
+      },
+      {
+        "title": "Latest Articles",
+        "description": "Read the latest investment news."
+      },
+      {
+        "title": "Expand News",
+        "description": "Open complete news details including image and description."
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "title": "AI Assistant",
+    "icon": "smart_toy",
+    "color": "#8B5CF6",
+    "description": "Understand AI-powered insights.",
+    "items": [
+      {
+        "title": "Fund Analysis",
+        "description": "Generate AI summaries for Mutual Funds."
+      },
+      {
+        "title": "Compare Funds",
+        "description": "Generate AI comparison between selected funds."
+      },
+      {
+        "title": "Disclaimer",
+        "description": "AI responses are informational only and should not be treated as financial advice."
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "title": "Account & Security",
+    "icon": "shield",
+    "color": "#EF4444",
+    "description": "Manage your account securely.",
+    "items": [
+      {
+        "title": "Password Security",
+        "description": "Passwords are securely encrypted before storage."
+      },
+      {
+        "title": "JWT Authentication",
+        "description": "All authenticated requests use JWT tokens."
+      },
+      {
+        "title": "OTP Verification",
+        "description": "OTP verification helps protect your account."
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "title": "Frequently Asked Questions",
+    "icon": "help",
+    "color": "#EC4899",
+    "description": "Common questions answered.",
+    "items": [
+      {
+        "title": "I didn't receive the OTP",
+        "description": "Check your Spam folder or request a new OTP."
+      },
+      {
+        "title": "Why is AI taking time?",
+        "description": "AI responses depend on external AI services and internet latency."
+      },
+      {
+        "title": "Can I trust AI suggestions?",
+        "description": "Use AI responses as guidance only. Always perform your own research."
+      },
+      {
+        "title": "Why can't I login?",
+        "description": "Ensure your email has been verified and your password is correct."
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "title": "Contact Support",
+    "icon": "support_agent",
+    "color": "#14B8A6",
+    "description": "Need help? Contact us.",
+    "items": [
+      {
+        "title": "Support",
+        "description": "Reach out using the Contact Us page."
+      },
+      {
+        "title": "Response Time",
+        "description": "Typical response time is within 24 business hours."
+      },
+      {
+        "title": "Feedback",
+        "description": "Your feedback helps improve FinInsights."
+      }
+    ]
+  },
+  {
+    "id": 9,
+    "title": "About FinInsights",
+    "icon": "info",
+    "color": "#6366F1",
+    "description": "Know more about the application.",
+    "items": [
+      {
+        "title": "Purpose",
+        "description": "FinInsights helps users explore Mutual Funds, Stocks, News, and AI-powered investment insights."
+      },
+      {
+        "title": "Technology",
+        "description": "Built using Angular, .NET 8, Azure SQL, Render, Vercel, OpenAI, Finnhub, Alpha Vantage, and MarketAux APIs."
+      },
+      {
+        "title": "Version",
+        "description": "FinInsights v1.0"
+      }
+    ]
+  }
+]

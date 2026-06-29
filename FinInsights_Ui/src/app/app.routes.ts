@@ -6,6 +6,7 @@ import { Mutualfunds } from '../modules/mutualfunds/mutualfunds';
 import { News } from '../modules/news/news';
 import { CompareMutualfunds } from '../modules/compare-mutualfunds/compare-mutualfunds';
 import { StockSearch } from '../modules/stock-search/stock-search';
+import { Help } from '../modules/help/help';
 
 
 export const routes: Routes = [
@@ -14,5 +15,6 @@ export const routes: Routes = [
     { path: 'mf', component: Mutualfunds, canActivate: [authGuard] },
     { path: 'news', component: News, canActivate: [authGuard] },
     { path: 'compareMF', component: CompareMutualfunds, canActivate: [authGuard] },
-    { path: 'searchStock', component:StockSearch, canActivate : [authGuard]}
+    { path: 'searchStock', component:StockSearch, canActivate : [authGuard]},
+    {path: 'help', component:Help, canActivate : [authGuard]}
 ];
