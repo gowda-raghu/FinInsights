@@ -138,7 +138,7 @@ export class Mutualfunds {
     this._restService.getNavData(scheme.schemeCode, this.startDate, this.endDate).subscribe((s: any) => {
       console.log(JSON.stringify(s));
       this.fundData = s;
-      this.isViewDetail = true; this.loader.hide();this.cd.detectChanges();
+      this.isViewDetail = true; this.loader.hide(); this.cd.detectChanges();
     });
   }
 
@@ -314,16 +314,22 @@ export class Mutualfunds {
       userId: currentUser.id,
       schemes: this.schemes
     };
-    this._restService.MailFav(request).subscribe((res: any) => {
-      console.log(res);
-      if(res!=null){
-        this.alertService.show("Mail sent successfully!");
-      }
-      else{
-        this.alertService.show("Unable to Mail!Please try again later");
-      }
-      this.cd.detectChanges();
-    })
+    if (this.schemes.length == 0) {
+       this.alertService.show("There are currently no Favourties!");
+       this.cd.detectChanges();
+    }
+    else {
+      this._restService.MailFav(request).subscribe((res: any) => {
+        console.log(res);
+        if (res != null) {
+          this.alertService.show("Mail sent successfully!");
+        }
+        else {
+          this.alertService.show("Unable to Mail!Please try again later");
+        }
+        this.cd.detectChanges();
+      })
+    };
 
 
   }

@@ -2,15 +2,15 @@
    PAGE
 ========================================================== */
 
-.stock-search-page{
+.stock-search-page {
 
-    min-height:calc(100vh - 72px);
+    min-height: calc(100vh - 72px);
 
-    padding:40px;
+    padding: 40px;
 
-    position:relative;
+    position: relative;
 
-    overflow:hidden;
+    overflow: hidden;
 
 }
 
@@ -18,47 +18,47 @@
    BACKGROUND GLOW
 ========================================================== */
 
-.stock-search-page::before{
+.stock-search-page::before {
 
-    content:"";
+    content: "";
 
-    position:absolute;
+    position: absolute;
 
-    width:450px;
-    height:450px;
+    width: 450px;
+    height: 450px;
 
-    top:-180px;
-    left:-180px;
+    top: -180px;
+    left: -180px;
 
-    border-radius:50%;
+    border-radius: 50%;
 
-    background:rgba(143,124,255,.18);
+    background: rgba(143, 124, 255, .18);
 
-    filter:blur(120px);
+    filter: blur(120px);
 
-    pointer-events:none;
+    pointer-events: none;
 
 }
 
-.stock-search-page::after{
+.stock-search-page::after {
 
-    content:"";
+    content: "";
 
-    position:absolute;
+    position: absolute;
 
-    width:420px;
-    height:420px;
+    width: 420px;
+    height: 420px;
 
-    right:-150px;
-    bottom:-150px;
+    right: -150px;
+    bottom: -150px;
 
-    border-radius:50%;
+    border-radius: 50%;
 
-    background:rgba(109,94,247,.18);
+    background: rgba(109, 94, 247, .18);
 
-    filter:blur(120px);
+    filter: blur(120px);
 
-    pointer-events:none;
+    pointer-events: none;
 
 }
 
@@ -66,59 +66,59 @@
    HERO
 ========================================================== */
 
-.hero{
+.hero {
 
-    position:relative;
+    position: relative;
 
-    z-index:2;
+    z-index: 2;
 
-    width:100%;
+    width: 100%;
 
-    max-width:1100px;
+    max-width: 1100px;
 
-    margin:auto;
+    margin: auto;
 
-    padding:60px;
+    padding: 60px;
 
-    text-align:center;
+    text-align: center;
 
-    background:var(--glass);
+    background: var(--glass);
 
-    backdrop-filter:blur(22px);
+    backdrop-filter: blur(22px);
 
-    border:1px solid var(--glass-border);
+    border: 1px solid var(--glass-border);
 
-    border-radius:28px;
+    border-radius: 28px;
 
-    box-shadow:var(--card-shadow);
+    box-shadow: var(--card-shadow);
 
-    transition:.35s;
-
-}
-
-.hero.compact{
-
-    padding:35px;
-
-    margin-bottom:30px;
+    transition: .35s;
 
 }
 
-.hero-title{
+.hero.compact {
 
-    font-size:2.5rem;
+    padding: 35px;
 
-    font-weight:700;
-
-    color:var(--text);
+    margin-bottom: 30px;
 
 }
 
-.hero-subtitle{
+.hero-title {
 
-    margin-top:12px;
+    font-size: 2.5rem;
 
-    color:var(--text-secondary);
+    font-weight: 700;
+
+    color: var(--text);
+
+}
+
+.hero-subtitle {
+
+    margin-top: 12px;
+
+    color: var(--text-secondary);
 
 }
 
@@ -126,89 +126,87 @@
    SEARCH
 ========================================================== */
 
-.search-container{
+.search-container {
 
-    display:flex;
+    display: flex;
 
-    gap:18px;
+    gap: 18px;
 
-    margin-top:35px;
-
-}
-
-.stock-search{
-
-    flex:1;
-
-    height:65px;
-
-    border:none;
-
-    outline:none;
-
-    border-radius:18px;
-
-    padding:0 24px;
-
-    font-size:17px;
-
-    color:var(--text);
-
-    background:var(--glass);
-
-    border:1px solid var(--glass-border);
-
-    backdrop-filter:blur(20px);
+    margin-top: 35px;
 
 }
 
-.stock-search::placeholder{
+.stock-search {
 
-    color:var(--subText);
+    flex: 1;
+
+    height: 65px;
+
+    border: none;
+
+    outline: none;
+
+    border-radius: 18px;
+
+    padding: 0 24px;
+
+    font-size: 17px;
+
+    color: var(--text);
+
+    background: var(--glass);
+
+    border: 1px solid var(--glass-border);
+
+    backdrop-filter: blur(20px);
 
 }
 
-.stock-search:focus{
+.stock-search::placeholder {
 
-    border-color:var(--primary);
+    color: var(--subText);
+
+}
+
+.stock-search:focus {
+
+    border-color: var(--primary);
 
     box-shadow:
 
-        0 0 0 3px rgba(143,124,255,.18);
+        0 0 0 3px rgba(143, 124, 255, .18);
 
 }
 
-.search-btn{
+.search-btn {
 
-    min-width:180px;
+    min-width: 180px;
 
-    border:none;
+    border: none;
 
-    border-radius:18px;
+    border-radius: 18px;
 
-    cursor:pointer;
+    cursor: pointer;
 
-    font-weight:600;
+    font-weight: 600;
 
-    color:white;
+    color: white;
 
     background:
-        linear-gradient(
-            135deg,
+        linear-gradient(135deg,
             var(--primary),
-            var(--primary-dark)
-        );
+            var(--primary-dark));
 
-    transition:.3s;
+    transition: .3s;
 
 }
 
-.search-btn:hover{
+.search-btn:hover {
 
-    transform:translateY(-2px);
+    transform: translateY(-2px);
 
     box-shadow:
-        0 15px 30px rgba(124,58,237,.35);
+        0 15px 30px rgba(124, 58, 237, .35);
 
 }
 
@@ -216,35 +214,35 @@
    RESULTS
 ========================================================== */
 
-.results-section{
+.results-section {
 
-    width:100%;
+    width: 100%;
 
-    max-width:1350px;
+    max-width: 1350px;
 
-    margin:35px auto;
-
-}
-
-.results-header{
-
-    display:flex;
-
-    justify-content:space-between;
-
-    align-items:center;
-
-    margin-bottom:24px;
+    margin: 35px auto;
 
 }
 
-.results-title{
+.results-header {
 
-    color:var(--text);
+    display: flex;
 
-    font-size:30px;
+    justify-content: space-between;
 
-    font-weight:700;
+    align-items: center;
+
+    margin-bottom: 24px;
+
+}
+
+.results-title {
+
+    color: var(--text);
+
+    font-size: 30px;
+
+    font-weight: 700;
 
 }
 
@@ -252,14 +250,14 @@
    GRID
 ========================================================== */
 
-.stock-grid{
+.stock-grid {
 
-    display:grid;
+    display: grid;
 
     grid-template-columns:
-        repeat(auto-fit,minmax(370px,1fr));
+        repeat(auto-fit, minmax(370px, 1fr));
 
-    gap:24px;
+    gap: 24px;
 
 }
 
@@ -267,55 +265,55 @@
    CARD
 ========================================================== */
 
-.stock-card{
+.stock-card {
 
-    position:relative;
+    position: relative;
 
-    overflow:hidden;
+    overflow: hidden;
 
-    padding:28px;
+    padding: 28px;
 
-    background:var(--glass);
+    background: var(--glass);
 
-    backdrop-filter:blur(20px);
+    backdrop-filter: blur(20px);
 
-    border:1px solid var(--glass-border);
+    border: 1px solid var(--glass-border);
 
-    border-radius:24px;
+    border-radius: 24px;
 
-    box-shadow:var(--card-shadow);
+    box-shadow: var(--card-shadow);
 
-    transition:.35s;
-
-}
-
-.stock-card:hover{
-
-    transform:translateY(-6px);
-
-    background:var(--glass-hover);
+    transition: .35s;
 
 }
 
-.stock-card::before{
+.stock-card:hover {
 
-    content:"";
+    transform: translateY(-6px);
 
-    position:absolute;
+    background: var(--glass-hover);
 
-    width:150px;
+}
 
-    height:150px;
+.stock-card::before {
 
-    right:-60px;
+    content: "";
 
-    top:-60px;
+    position: absolute;
 
-    border-radius:50%;
+    width: 150px;
 
-    background:rgba(143,124,255,.18);
+    height: 150px;
 
-    filter:blur(60px);
+    right: -60px;
+
+    top: -60px;
+
+    border-radius: 50%;
+
+    background: rgba(143, 124, 255, .18);
+
+    filter: blur(60px);
 
 }
 
@@ -323,47 +321,47 @@
    CARD CONTENT
 ========================================================== */
 
-.stock-symbol{
+.stock-symbol {
 
-    font-size:34px;
+    font-size: 34px;
 
-    font-weight:700;
+    font-weight: 700;
 
-    color:var(--primary);
+    color: var(--primary);
 
-    margin-bottom:10px;
-
-}
-
-.stock-company{
-
-    color:var(--text-secondary);
-
-    line-height:1.7;
-
-    margin-bottom:20px;
-
-    min-height:48px;
+    margin-bottom: 10px;
 
 }
 
-.stock-type{
+.stock-company {
 
-    display:inline-flex;
+    color: var(--text-secondary);
 
-    align-items:center;
+    line-height: 1.7;
 
-    padding:8px 16px;
+    margin-bottom: 20px;
 
-    border-radius:40px;
+    min-height: 48px;
 
-    background:rgba(143,124,255,.18);
+}
 
-    color:var(--primary-light);
+.stock-type {
 
-    font-size:13px;
+    display: inline-flex;
 
-    font-weight:600;
+    align-items: center;
+
+    padding: 8px 16px;
+
+    border-radius: 40px;
+
+    background: rgba(143, 124, 255, .18);
+
+    color: var(--primary-light);
+
+    font-size: 13px;
+
+    font-weight: 600;
 
 }
 
@@ -371,41 +369,39 @@
    BUTTON
 ========================================================== */
 
-.view-btn{
+.view-btn {
 
-    width:100%;
+    width: 100%;
 
-    margin-top:24px;
+    margin-top: 24px;
 
-    height:48px;
+    height: 48px;
 
-    border:none;
+    border: none;
 
-    border-radius:14px;
+    border-radius: 14px;
 
-    cursor:pointer;
+    cursor: pointer;
 
-    font-weight:600;
+    font-weight: 600;
 
-    color:white;
+    color: white;
 
     background:
-        linear-gradient(
-            135deg,
+        linear-gradient(135deg,
             var(--primary),
-            var(--primary-dark)
-        );
+            var(--primary-dark));
 
-    transition:.3s;
+    transition: .3s;
 
 }
 
-.view-btn:hover{
+.view-btn:hover {
 
-    transform:translateY(-2px);
+    transform: translateY(-2px);
 
     box-shadow:
-        0 15px 30px rgba(124,58,237,.35);
+        0 15px 30px rgba(124, 58, 237, .35);
 
 }
 
@@ -413,11 +409,11 @@
    DISABLED
 ========================================================== */
 
-.disabled{
+.disabled {
 
-    opacity:.45;
+    opacity: .45;
 
-    cursor:not-allowed;
+    cursor: not-allowed;
 
 }
 
@@ -425,58 +421,87 @@
    MOBILE
 ========================================================== */
 
-@media(max-width:900px){
+@media(max-width:900px) {
 
-    .hero{
+    .hero {
 
-        padding:35px 22px;
-
-    }
-
-    .hero-title{
-
-        font-size:2rem;
+        padding: 35px 22px;
 
     }
 
-    .search-container{
+    .hero-title {
 
-        flex-direction:column;
-
-    }
-
-    .search-btn{
-
-        height:60px;
+        font-size: 2rem;
 
     }
 
-    .stock-grid{
+    .search-container {
 
-        grid-template-columns:1fr;
+        flex-direction: column;
+
+    }
+
+    .search-btn {
+
+        height: 60px;
+
+    }
+
+    .stock-grid {
+
+        grid-template-columns: 1fr;
 
     }
 
 }
 
-@media(max-width:600px){
+@media(max-width:600px) {
 
-    .stock-search-page{
+    .stock-search-page {
 
-        padding:20px;
-
-    }
-
-    .hero{
-
-        padding:28px 18px;
+        padding: 20px;
 
     }
 
-    .hero-title{
+    .search-btn {
 
-        font-size:1.7rem;
+        height: 40px;
 
+    }
+
+    .hero {
+
+        padding: 28px 18px;
+
+    }
+
+    .hero-title {
+
+        font-size: 1.7rem;
+
+    }
+
+    .results-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 24px;
+        flex-direction: column;
+        gap: 16px;
+        height: 72px;
+    }
+
+    .results-title {
+        color: var(--text);
+        font-size: 20px;
+        font-weight: 700;
+    }
+
+    .stock-symbol {
+        font-size: 24px;
+        font-weight: 700;
+        color: var(--primary);
+        margin-bottom: 10px;
     }
 
 }

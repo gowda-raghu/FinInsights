@@ -403,8 +403,28 @@ h2 {
     .ai-result,
     .ai-loading-container {
 
-        width: 100%;
+        width: 90%;
+        margin: 20px;
 
+    }
+
+    .compare-card {
+        max-width: 900px;
+        margin: 20px;
+        padding: 30px;
+    }
+
+    .compare-grid {
+        grid-template-columns: 1fr;
+        margin: 20px;
+    }
+
+    .compare-item {
+        display: flex;
+        justify-content: space-between;
+        padding: 14px 0;
+        border-bottom: 1px solid rgba(255, 255, 255, .08);
+        gap: 2%;
     }
 
 }

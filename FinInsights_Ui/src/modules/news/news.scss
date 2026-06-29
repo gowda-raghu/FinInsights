@@ -392,9 +392,15 @@ mat-card-actions {
 
   mat-card-title {
 
-    font-size: 20px !important;
+    font-size: 16px !important;
 
   }
+
+  .header-row h2{
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--text);
+}
 
 }
 
