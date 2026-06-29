@@ -6,6 +6,7 @@ import { ChangeDetectorRef } from '@angular/core';
 import { Router, RouterOutlet } from '@angular/router';
 import { AlertService } from '../../common/alert/alert.service';
 import { PathService } from '../../common/services/path.service';
+import { LoaderService } from '../../services/loaderService';
 
 @Component({
   selector: 'app-login',
@@ -31,7 +32,7 @@ export class Login {
   otp: any = null;
   name: string = '';
   confirmPassword: string = '';
-  constructor(private _restService: Restservice, private pathservice: PathService, private cd: ChangeDetectorRef, private router: Router, private alertService: AlertService) {
+  constructor(private _restService: Restservice, private pathservice: PathService, private cd: ChangeDetectorRef, private router: Router, private alertService: AlertService, private loader: LoaderService) {
     // this._restService.getUsers().subscribe(s => {
     //   this.users = s;
     //   console.log(this.users);
@@ -81,7 +82,7 @@ export class Login {
       Password: this.regpassword,
       Otp: this.otp
     }
-
+    this.loader.show();
     this._restService.AddUser(newUserDetails).subscribe({
       next: (s: any) => {
         if (s) {
@@ -110,13 +111,18 @@ export class Login {
           }
           if (!s.isRegistered && !s.isOtpGenerated) {
             this.alertService.show(s?.message);
-            this.cd.detectChanges();
+
 
           }
         }
+        this.loader.hide();
+        this.cd.detectChanges();
+
+
       },
       error: (err: any) => {
         this.alertService.show("Unable to add user.\n" + err.error);
+        this.loader.hide();
         this.cd.detectChanges();
 
       }
@@ -129,6 +135,8 @@ export class Login {
     //this.token = null;
     this.errorMessage = '';
     console.log(this.password);
+    this.loader.show()
+    this.cd.detectChanges();
     this._restService.login(
       {
         "username": this.email,
@@ -161,10 +169,15 @@ export class Login {
             this.errorMessage = 'Invalid credentials';
             this.alertService.show(this.errorMessage);
           }
+          this.loader.hide();
+          this.cd.detectChanges();
 
         },
         error: (err: any) => {
           this.alertService.show(err.error);
+          this.loader.hide();
+          this.cd.detectChanges();
+
         }
       })
   };

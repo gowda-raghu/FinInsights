@@ -14,8 +14,6 @@ public class ServiceTokenHandler : DelegatingHandler
         CancellationToken cancellationToken)
     {
         var token = _jwtService.GenerateServiceToken();
-        Console.WriteLine("Generated Service Token:");
-        Console.WriteLine(token);
         request.Headers.Authorization =
             new AuthenticationHeaderValue("Bearer", token);
 

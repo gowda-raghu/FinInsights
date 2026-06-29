@@ -30,15 +30,12 @@ public class JWTMiddleware
         }
 
         var token = authHeader.Replace("Bearer ", "");
-        Console.WriteLine(token);
 
         try
         {
             var tokenHandler = new JwtSecurityTokenHandler();
             var jwt = tokenHandler.ReadJwtToken(token);
 
-            Console.WriteLine(jwt.ValidTo);
-            Console.WriteLine(jwt.Payload.SerializeToJson());
             tokenHandler.ValidateToken(
                 token,
                 new TokenValidationParameters
@@ -60,9 +57,6 @@ public class JWTMiddleware
         }
         catch (Exception ex)
         {
-            Console.WriteLine("================================");
-            Console.WriteLine(ex.ToString());
-            Console.WriteLine("================================");
 
             context.Response.StatusCode = 401;
             await context.Response.WriteAsync(ex.ToString());
